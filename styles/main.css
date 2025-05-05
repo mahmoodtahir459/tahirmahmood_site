@@ -57,6 +57,10 @@
   .project-list, .skills {
     list-style: square inside;
     margin-left: 20px;
+    color: black;
+  }
+  .project-list-item {
+    text-decoration: none;
   }
   
   footer {
@@ -65,4 +69,40 @@
     background: #003f5c;
     color: #fff;
   }
-  
+  .dropdown-container {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .dropdown {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    user-select: none;
+  }
+
+  .chevron {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown.active .chevron {
+    transform: rotate(90deg);
+  }
+
+  .dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    list-style: circle inside;
+    margin-left: 1.5em;
+    transition: max-height 0.4s ease;
+  }
+
+  .dropdown.active + .dropdown-content {
+    max-height: 500px;
+  }
+
+  .sublist {
+    margin-left: 1.5em; 
+  }  
