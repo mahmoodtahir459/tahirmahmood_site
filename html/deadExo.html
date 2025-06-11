@@ -6,6 +6,8 @@
   <title>Tahir Mahmood | Mechatronics Engineer</title>
   <link rel="stylesheet" href="../styles/main.css" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
   <header>
@@ -62,14 +64,32 @@
       <h2>Model And Videos:</h2>
       <div class="carousel" id="mediaCarousel">
         <div class="carousel-track">
-          <div class="carousel-item"><model-viewer
-      src="../Assets/Deadlift_exoskeleton/assembly_1.glb"
-      alt="3D Assembly of Exoskeleton"
-      auto-rotate
-      camera-controls
-      ar
-      style="width: 600px; height: 400px;"
-    ></model-viewer></div>
+          <div class="carousel-item">
+            <script>
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const loader = new THREE.GLTFLoader();
+      loader.load('../Assets/Deadlift_exoskeleton/assembly_1.glb', function(gltf) {
+        scene.add(gltf.scene);
+      });
+
+      const light = new THREE.HemisphereLight(0xffffff, 0x444444);
+      light.position.set(0, 20, 0);
+      scene.add(light);
+
+      camera.position.z = 5;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+          </div>
           <div class="carousel-item"><img src="../Assets/PSP_MOD/20241229_020652.jpg" alt="Photo 2"></div>
           <div class="carousel-item"><img src="../Assets/PSP_MOD/20241229_020818.jpg" alt="Photo 3"></div>
           <div class="carousel-item"><img src="../Assets/PSP_MOD/20241229_020921.jpg" alt="Photo 4"></div>
