@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tahir Mahmood | Mechatronics Engineer</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Drone</h1>
+      <p>This project was carried out as part of two courses to gain a deeper understanding of Actuators and Power Electronics, as well as Sensors and Instrumentation. Key components of a drone were designed, modeled, and implemented to create a functional prototype.</p>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <a href="../index.html">Home</a>
+    </div>
+  </nav>
+  <section id="project_info" class="section">
+    <div class="container">
+      <h2>Project Info:</h2>
+      <h3>Overview:</h3>
+      <p>In this project, I retrofitted a Sony PSP2000 to replace its outdated barrel jack charging port with a modern USB Type-C connector. 
+        This modification was designed to streamline device charging across my 
+        electronics collection by adopting a universal charging standard.
+    </p>
+    <br>
+   <h3>Goals:</h3>
+   <ul style="margin-left: 30px;">
+    <li>Modenize an older device to use USB-C for Power input</li>
+    <li>Elminate the need for a proprietary charger by enabling charging via common 5V usb sources</li>
+    <li>Apply practical electronics and fabrication skills in a hands-on hardware mod</li>
+   </ul>
+   <br>
+   <h3>Technical Highlights:</h3>
+   <ul style="margin-left: 30px;">
+    <li>
+        <p>Soldering and Electronics integration:<p>
+        <p>Connected the USB-C port directly to the PSP's power input circuit. Since the PSP only requires 5V input, 
+            the USB-C connector works effectively without needing a Power Delivery (PD) controller or data lines. 
+            This demonstrates an applied understanding of power requirements and USB-C wiring standards.
+        </p>
+    </li>
+    <li style="margin-top: 10px;">
+        <p>Physical Fabrication:</p>
+        <p>
+            Used a Dremel to carefully cut and shape the PSP2000’s 
+            case to make space for the larger USB-C port. This involved 
+            precision work to ensure a snug fit without interfering with other internal components.
+        </p>
+    </li>
+
+    <li style="margin-top: 10px;">
+        <p>Mounting and Stability:</p>
+        <p>
+            Secured the USB-C port in place using hot glue to both insulate and 
+            anchor the port against mechanical stress from plugging/unplugging. 
+            The installation is firm, flush, and functional.
+        </p>
+    </li>
+   </ul>
+    </div>
+  </section>
+  <section id="project_media" class="section">
+    <div class="container">
+      <h2>Photos And Videos:</h2>
+      <div class="carousel" id="mediaCarousel">
+        <div class="carousel-track">
+          <div class="carousel-item"><img src="../Assets/PSP_MOD/20241229_020635.jpg" alt="Photo 1"></div>
+          <div class="carousel-item"><img src="../Assets/PSP_MOD/20241229_020652.jpg" alt="Photo 2"></div>
+          <div class="carousel-item"><img src="../Assets/PSP_MOD/20241229_020818.jpg" alt="Photo 3"></div>
+          <div class="carousel-item"><img src="../Assets/PSP_MOD/20241229_020921.jpg" alt="Photo 4"></div>
+          <div class="carousel-item"><img src="../Assets/PSP_MOD/20241229_020947.jpg" alt="Photo 5"></div>
+          <div class="carousel-item">
+            <div style="position: relative; width: 100%; padding-top: 56.25%;">
+              <iframe 
+                src="https://drive.google.com/file/d/1u5bi1D27gesFrKN_87qv6ojC34wnM0Gr/preview" 
+                allow="autoplay" 
+                allowfullscreen 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+              </iframe>
+            </div>
+        </div>          
+        </div>
+        <button class="carousel-button prev" onclick="moveSlide(-1)">❮</button>
+        <button class="carousel-button next" onclick="moveSlide(1)">❯</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    let currentIndex = 0;
+    function moveSlide(direction) {
+      const track = document.querySelector('.carousel-track');
+      const items = document.querySelectorAll('.carousel-item');
+      const totalItems = items.length;
+    
+      currentIndex += direction;
+    
+      if (currentIndex < 0) currentIndex = totalItems - 1;
+      if (currentIndex >= totalItems) currentIndex = 0;
+    
+      const offset = -currentIndex * 100;
+      track.style.transform = `translateX(${offset}%)`;
+    }
+    </script>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Tahir Mahmood. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
